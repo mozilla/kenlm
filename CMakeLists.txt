@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 2.6)
 
+# Retain the old CMP0012 policy
+cmake_policy(SET CMP0012 OLD)
+
 # Define a single cmake project
 project(kenlm)
 
