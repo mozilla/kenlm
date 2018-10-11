@@ -1,0 +1,8 @@
+#!/bin/bash
+lxc init ubuntu:bionic job$JOB_NUMBER
+lxc file push kenlm_install.sh job$JOB_NUMBER/root/
+lxc start job$JOB_NUMBER
+lxc exec job$JOB_NUMBER /root/kenlm_install.sh
+lxc stop job$JOB_NUMBER
+lxc publish job$JOB_NUMBER --alias kenlm
+lxc delete job$JOB_NUMBER

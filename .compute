@@ -1,0 +1,9 @@
+#!/bin/bash
+lxc init headnode:kenlm kenlm
+printf "uid 1777 0\ngid 1777 0" | lxc config set gentle raw.idmap -
+lxc config device add gentle sda disk source=/snakepit path=snakepit
+lxc start kenlm
+lxc exec kenlm /root/kenlm/kenlm_run.sh
+lxc stop kenlm
+lxc config device remove kenlm sda
+lxc delete kenlm
