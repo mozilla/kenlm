@@ -3,13 +3,13 @@ import os
 import glob
 
 # Define directory for arpa files
-arpa_directory = '/snakepit/uploads/v0.3.0/arpa'
+arpa_directory = '/snakepit/home/kdavis/v0.3.0/arpa'
 
 # Define directory for trie files
-trie_directory = '/snakepit/uploads/v0.3.0/trie'
+trie_directory = '/snakepit/home/kdavis/v0.3.0/trie'
 
 # Define directory for probing files
-probing_directory = '/snakepit/uploads/v0.3.0/probing'
+probing_directory = '/snakepit/home/kdavis/v0.3.0/probing'
 
 # Define paths to text corpora
 librispeech_path = '/snakepit/shared/data/OpenSLR/SLR11/librispeech-lm-lc-norm.txt'
