@@ -35,12 +35,12 @@ for order in range(min_order, max_order + 1):
             arpa_file = 'verbose_header_order=%d_prune=%d_interpolate_unigrams=%d.arpa' % (order, prune, interpolate_unigrams)
             arpa_path = os.path.join(arpa_directory, arpa_file)
             print('Generating arpa %s' % arpa_path)
-            subprocess.run('build/bin/lmplz --memory 50% --verbose_header --order %d --prune %s --interpolate_unigrams %d --text %s --arpa %s' % (order, prune_arg, interpolate_unigrams, librispeech_path, arpa_path))
+            subprocess.run('build/bin/lmplz --memory 50%% --verbose_header --order %d --prune %s --interpolate_unigrams %d --text %s --arpa %s' % (order, prune_arg, interpolate_unigrams, librispeech_path, arpa_path))
             for counter, limit_vocab_file in enumerate(limit_vocab_files):
                 arpa_file = 'verbose_header_order=%d_prune=%d_interpolate_unigrams=%d_vocab_limit=%d.arpa' % (order, prune, interpolate_unigrams, (10000 + counter*5000))
                 arpa_path = os.path.join(arpa_directory, arpa_file)
                 print('Generating arpa %s' % arpa_path)
-                subprocess.run('build/bin/lmplz --memory 50% --verbose_header --order %d --prune %s --limit_vocab_file %s --interpolate_unigrams %d --text %s --arpa %s' % (order, prune_arg, limit_vocab_file, interpolate_unigrams, librispeech_path, arpa_path))
+                subprocess.run('build/bin/lmplz --memory 50%% --verbose_header --order %d --prune %s --limit_vocab_file %s --interpolate_unigrams %d --text %s --arpa %s' % (order, prune_arg, limit_vocab_file, interpolate_unigrams, librispeech_path, arpa_path))
 
 
 # Generate probing models
