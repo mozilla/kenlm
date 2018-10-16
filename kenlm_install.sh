@@ -1,4 +1,5 @@
 #!/bin/bash
+sleep 30
 apt-get update
 apt-get -y install g++
 apt-get -y install cmake
