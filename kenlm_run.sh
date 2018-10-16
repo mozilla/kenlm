@@ -54,7 +54,7 @@ for arpa_path in os.listdir(arpa_directory):
             extensionless_arpa_file = os.path.splitext(arpa_file)[0]
             probing_file = (extensionless_arpa_file + '==space_multiplier=%f.probing') % (space_multiplier)
             probing_path = os.path.join(probing_directory, probing_file)
-            subprocess.run('build/bin/build_binary -S 50% -p %f probing %s %s' % (space_multiplier, arpa_path, probing_path) )
+            subprocess.run('build/bin/build_binary -S 50%% -p %f probing %s %s' % (space_multiplier, arpa_path, probing_path) )
 
 
 # Generate trie models
@@ -66,15 +66,15 @@ for arpa_path in os.listdir(arpa_directory):
         extensionless_arpa_file = os.path.splitext(arpa_file)[0]
         trie_file = extensionless_arpa_file + '.trie'
         trie_path = os.path.join(trie_directory, trie_file)
-        subprocess.run('build/bin/build_binary -S 50% trie %s %s' % (arpa_path, trie_path))
+        subprocess.run('build/bin/build_binary -S 50%% trie %s %s' % (arpa_path, trie_path))
         for bits in range(1, (max_bits + 1)):
             print('Generating trie models quantized to %d bits' % bits)
             for backoff in range(1, bits + 1):
                 print('Generating trie models backed off to %d bits' % backoff)
                 trie_file = (extensionless_arpa_file + '==q=%d_b=%d.trie') % (bits, backoff)
                 trie_path = os.path.join(trie_directory, trie_file)
-                subprocess.run('build/bin/build_binary -S 50% trie -q %d -b %d %s %s' % (bits, backoff, arpa_path, trie_path))
+                subprocess.run('build/bin/build_binary -S 5%0% trie -q %d -b %d %s %s' % (bits, backoff, arpa_path, trie_path))
                 print('Generating trie model with %d array max bits' % array_max_bits)
                 trie_file = (extensionless_arpa_file + '==q=%d_b=%d_a=%d.trie') % (bits, backoff, array_max_bits)
                 trie_path = os.path.join(trie_directory, trie_file)
-                subprocess.run('build/bin/build_binary -S 50% trie -q %d -b %d -a %d %s %s' % (bits, backoff, array_max_bits, arpa_path, trie_path))
+                subprocess.run('build/bin/build_binary -S 50%% trie -q %d -b %d -a %d %s %s' % (bits, backoff, array_max_bits, arpa_path, trie_path))
