@@ -44,10 +44,10 @@ for order in range(min_order, max_order + 1):
 
 
 # Generate probing models
-for arpa_path in os.listdir(arpa_directory):
-    if arpa_path.endswith('.arpa'):
+for arpa_file in os.listdir(arpa_directory):
+    if arpa_file.endswith('.arpa'):
+        arpa_path = os.path.join(arpa_directory, arpa_file)
         print('Generating probing models from arpra path %s' % arpa_path)
-        arpa_file = os.path.basename(arpa_path)
         print('Generating probing models from arpra file %s' % arpa_file)
         for space_multiplier in [x * 0.1 for x in range(11, 102, 10)]:
             print('Generating probing model for space_multiplier %f' % space_multiplier)
@@ -58,10 +58,10 @@ for arpa_path in os.listdir(arpa_directory):
 
 
 # Generate trie models
-for arpa_path in os.listdir(arpa_directory):
-    if arpa_path.endswith('.arpa'):
+for arpa_file in os.listdir(arpa_directory):
+    if arpa_file.endswith('.arpa'):
+        arpa_path = os.path.join(arpa_directory, arpa_file)
         print('Generating trie models from arpra path %s' % arpa_path)
-        arpa_file = os.path.basename(arpa_path)
         print('Generating trie models from arpra file %s' % arpa_file)
         extensionless_arpa_file = os.path.splitext(arpa_file)[0]
         trie_file = extensionless_arpa_file + '.trie'
