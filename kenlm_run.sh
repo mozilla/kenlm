@@ -16,7 +16,7 @@ probing_directory = '/snakepit/home/kdavis/v0.3.0/probing'
 librispeech_path = '/snakepit/shared/data/OpenSLR/SLR11/librispeech-lm-lc-norm.txt'
 
 # Obtain limit vocab files
-limit_vocab_files = glob.glob('librispeech-lm-lc-*-norm.txt')
+limit_vocab_files = glob.glob('/root/kenlm/librispeech-lm-lc-*-norm.txt')
 
 # Define global constants
 max_bits = 25
